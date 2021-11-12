@@ -1,0 +1,69 @@
+$columns: 12 !default;
+$gutter: 20px !default;
+$medium: 640px;
+$large: 1024px;
+
+%col {
+  float: left;
+  position: relative;
+  padding: 0 $gutter * 0.5;
+
+  background-color: rgba(#000, 0.2);
+  border: 1px solid rgba(#000, 0.2);
+}
+
+// .col-6,
+// .col-4,
+// .col-8,
+// .col-2 {
+//   float: left;
+//   position: relative;
+//   min-height: 1px;
+//   padding: 0 10px;
+
+//   background-color: rgba(#000, 0.2);
+//   border: 1px solid rgba(#000, 0.2);
+// }
+
+
+@for $i from 1 through $columns {
+  .col-#{$i} {
+    @extend %col;
+    width: $i / $columns * 100%;
+  }
+  .col-m-#{$i}, .col-l-#{$i} {@extend %col;}
+}
+// .col-6 {
+//   width: 50%;
+// }
+// .col-4 {
+//   width: 33.333333%;
+// }
+// .col-8 {
+//   width: 66.666666%;
+// }
+// .col-2 {
+//   width: 16.666666%;
+// }
+
+
+////////////// System grid en media queries
+
+@media only screen and (min-width: $medium) {
+  @for $i from 1 through $columns{
+    .col-m-center{margin:0; float: none;}
+    .col-m-#{$i} {
+      //@extend %col;
+      width: $i / $columns * 100%
+    }
+  }
+}
+
+@media only screen and (min-width: $large ) {
+  @for $i from 1 through $columns{
+    .col-l-#{$i} {
+      //@extend %col;
+      width: $i / $columns * 100%
+    }
+  }
+}

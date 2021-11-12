@@ -1,0 +1,18 @@
+
+// @import "compass";
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+// $columns:16; si je souhaite changer les variables qui se trouvent dans les fichier importer
+
+@import "grid"
+
+
+
+
